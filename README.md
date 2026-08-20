@@ -14,6 +14,7 @@ What will the Resume card contain?:
 - Description
 - Company Contact Email
 - Status (Accepted/Denied/Pending) 
+- Notes
 
 Stylistic Choices:
 - Structured like a simple list
