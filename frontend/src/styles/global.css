@@ -6,24 +6,32 @@
     --font-ubuntu: 'Ubuntu Mono', monospace;
 }
 
+.bluehover {
+    @apply hover:border-blue-400/50 shadow-blue-400/50 hover:shadow-[0_0_5px_rgba(59,130,246,0.6)]
+}
+
 .btn {
-    @apply  border-gray-800 border rounded-lg hover:scale-100 duration-150 transition hover:shadow-sm hover:shadow-white
+    @apply  border-gray-800 border rounded-lg hover:scale-100 duration-150 transition 
+}
+
+.card {
+    @apply border-gray-800 border rounded-lg hover:scale-100 duration-150 transition
 }
 
 .txtfield {
-    @apply border-gray-800 border rounded-lg
+    @apply border-gray-800 border rounded-lg outline-none
 }
 
 .pending {
-    @apply border-2 border-amber-500/40 bg-amber-700/40 pl-2 pr-2 rounded-xl
+    @apply border-2 border-amber-500/40 bg-amber-700/40 rounded-xl transition duration-200
 }
 
 .accepted {
-    @apply border-2 border-green-500/40 bg-green-700/40 pl-2 pr-2 rounded-xl
+    @apply border-2 border-green-500/40 bg-green-700/40 rounded-xl transition duration-200
 }
 
 .denied {
-    @apply border-2 border-red-500/40 bg-red-700/40 pl-2 pr-2 rounded-xl
+    @apply border-2 border-red-500/40 bg-red-700/40 rounded-xl transition duration-200
 }
 
 .modal, .overlay {

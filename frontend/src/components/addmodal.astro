@@ -3,18 +3,21 @@
 
 <div id="addmodal" class="modal overlay flex flex-col items-center pt-30">
     
-    <main class="border-gray-800 border rounded-lg bg-gray-950 p-2 w-125 flex flex-col">
-        <div class="flex flex-row justify-between">
-            <p>new application</p>
-            <button id="closebutton" class="btn w-7 h-7 add-button">&times;</button>
+    <main class="w-125 flex flex-col gap-3">
+        <div class="flex flex-row justify-center items-center text-center border-gray-800 border rounded-lg p-3 bg-gray-950">
+            <p class="">new application</p>
         </div>
         <!-- Eventually call localhost:8080 where spring boot is -->
-        <form action="" method="POST" class="flex flex-col gap-2 p-3 text-xs">
-            <div class="flex flex-row gap-3 text-center items-center">
-                <label for="jobtitle">Job Title:</label>
-                <input type="text" id="jobtitle" name="jobtitle" required class="txtfield p-2">
-                <label for="jobtitle">Company:</label>
-                <input type="text" id="company" name="company" required class="txtfield p-2">
+        <form action="" method="POST" class="flex flex-col gap-2 text-xs p-5 border-gray-800 border rounded-lg bg-gray-950">
+            <div class="flex flex-row gap-3 text-center items-center justify-between">
+                <div class="max-w-1/2 gap-3 flex grow text-center items-center">
+                    <label for="jobtitle">Job Title:</label>
+                    <input type="text" id="jobtitle" name="jobtitle" required class="txtfield p-2 flex grow">
+                </div>
+                <div class="max-w-1/2 gap-3 flex grow text-center items-center">
+                    <label for="jobtitle">Company:</label>
+                    <input type="text" id="company" name="company" required class="txtfield p-2 flex grow">
+                </div>
             </div>
             <div class="flex flex-col gap-3">
                 <label for="jobtitle">Description:</label>
@@ -25,13 +28,23 @@
                 <input type="text" id="notes" name="notes" required class="txtfield p-2">
             </div>
         </form>
+        <div class="flex flex-row justify-between border-gray-800 border rounded-lg p-3 bg-gray-950 text-sm">
+            <button id="ditchbutton" class="denied p-2 pl-6 pr-6 hover:scale-105 hover:bg-red-500/40 hover:shadow-sm hover:shadow-red-500">ditch</button>
+            <button id="storebutton" class="accepted p-2 pl-6 pr-6 hover:scale-105 hover:shadow-sm hover:shadow-green-500">store</button>
+        </div>
     </main>
 
     <script>
-        const closeBtn = document.getElementById("closebutton");
+        const ditchBtn = document.getElementById("ditchbutton");
+        const storeBtn = document.getElementById("storebutton");
         const addModal = document.getElementById("addmodal");
 
-        closeBtn?.addEventListener("click", () => {
+        ditchBtn?.addEventListener("click", () => {
+            addModal?.classList.remove("open");
+        })
+
+        storeBtn?.addEventListener("click", () => {
+            // submit the form
             addModal?.classList.remove("open");
         })
     </script>
