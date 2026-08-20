@@ -1,0 +1,38 @@
+---
+---
+
+<div id="addmodal" class="modal overlay flex flex-col items-center pt-30">
+    
+    <main class="border-gray-800 border rounded-lg bg-gray-950 p-2 w-125 flex flex-col">
+        <div class="flex flex-row justify-between">
+            <p>new application</p>
+            <button id="closebutton" class="btn w-7 h-7 add-button">&times;</button>
+        </div>
+        <!-- Eventually call localhost:8080 where spring boot is -->
+        <form action="" method="POST" class="flex flex-col gap-2 p-3 text-xs">
+            <div class="flex flex-row gap-3 text-center items-center">
+                <label for="jobtitle">Job Title:</label>
+                <input type="text" id="jobtitle" name="jobtitle" required class="txtfield p-2">
+                <label for="jobtitle">Company:</label>
+                <input type="text" id="company" name="company" required class="txtfield p-2">
+            </div>
+            <div class="flex flex-col gap-3">
+                <label for="jobtitle">Description:</label>
+                <input type="text" id="description" name="description" class="txtfield p-2">
+            </div>
+            <div class="flex flex-col gap-3">
+                <label for="jobtitle">Notes:</label>
+                <input type="text" id="notes" name="notes" required class="txtfield p-2">
+            </div>
+        </form>
+    </main>
+
+    <script>
+        const closeBtn = document.getElementById("closebutton");
+        const addModal = document.getElementById("addmodal");
+
+        closeBtn?.addEventListener("click", () => {
+            addModal?.classList.remove("open");
+        })
+    </script>
+</div>
