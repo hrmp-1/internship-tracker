@@ -1,4 +1,4 @@
-# Resume Application Tracker
+# Internship Tracker
 **Technologies:**
 - Astro
 - HTML
