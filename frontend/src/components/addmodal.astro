@@ -3,29 +3,29 @@
 
 <div id="addmodal" class="modal overlay flex flex-col items-center pt-30">
     
-    <main class="w-150 flex flex-col gap-3">
+    <main class="w-150 flex flex-col gap-3 grow">
         <div class="flex flex-row justify-center items-center text-center border-gray-800 border rounded-lg p-3 bg-gray-950">
             <p class="">new application</p>
         </div>
         <!-- Eventually call localhost:8080 where spring boot is -->
-        <form action="" method="POST" class="flex flex-col gap-2 text-xs p-5 border-gray-800 border rounded-lg bg-gray-950">
+        <form action="" method="POST" class="flex flex-col gap-2 text-xs p-5 border-gray-800 border rounded-lg bg-gray-950 ">
             <div class="flex flex-row gap-3 text-center items-center justify-between">
                 <div class="max-w-1/2 gap-3 flex grow text-center items-center">
                     <label for="jobtitle">Job Title:</label>
                     <input type="text" id="jobtitle" name="jobtitle" required class="txtfield p-2 flex grow">
                 </div>
                 <div class="max-w-1/2 gap-3 flex grow text-center items-center">
-                    <label for="jobtitle">Company:</label>
+                    <label for="company">Company:</label>
                     <input type="text" id="company" name="company" required class="txtfield p-2 flex grow">
                 </div>
             </div>
-            <div class="flex flex-col gap-3">
-                <label for="jobtitle">Description:</label>
-                <input type="text" id="description" name="description" class="txtfield p-2 field-sizing-content">
+            <div class="flex flex-col grow gap-3">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" class="txtfield p-2 field-sizing-content"></textarea>
             </div>
-            <div class="flex flex-col gap-3">
-                <label for="jobtitle">Notes:</label>
-                <input type="text" id="notes" name="notes" required class="txtfield p-2 field-sizing-content">
+            <div class="flex flex-col grow gap-3">
+                <label for="notes">Notes:</label>
+                <textarea id="notes" name="notes" required class="txtfield p-2 field-sizing-content"></textarea>
             </div>
         </form>
         <div class="flex flex-row justify-between border-gray-800 border rounded-lg p-3 bg-gray-950 text-sm">
