@@ -7,6 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface InternshipRepository extends 
 CrudRepository<Internship, Long> {
     
-    List<Internship> getAll();
+    List<Internship> findAll();
 
 }

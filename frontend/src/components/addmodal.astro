@@ -38,14 +38,41 @@
         const ditchBtn = document.getElementById("ditchbutton");
         const storeBtn = document.getElementById("storebutton");
         const addModal = document.getElementById("addmodal");
+        const applicationContainer = document.getElementById("applications");
 
         ditchBtn?.addEventListener("click", () => {
             addModal?.classList.remove("open");
         })
 
         storeBtn?.addEventListener("click", () => {
+            const jobtitle = document.getElementById("jobtitle").value;
+            const company = document.getElementById("company").value;
+            const description = document.getElementById("description").value;
+            const notes = document.getElementById("notes").value;
+
+            createApplication(jobtitle, company, description, notes);
+
             // submit the form
             addModal?.classList.remove("open");
         })
+
+        async function createApplication(jobtitle, company, description, notes) {
+            const response = await fetch("http://localhost:8080/api/internships", {
+                method: "POST",
+                headers: {'Content-Type':  'application/json'},
+                body: JSON.stringify({
+                    jobtitle: `${jobtitle}`,
+                    company: `${company}`,
+                    description: `${description}`,
+                    notes: `${notes}`,
+                    status: "pending"
+                })
+            })
+
+            const data = await response.json();
+            console.log(data);
+        }
+
+        
     </script>
 </div>

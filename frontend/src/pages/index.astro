@@ -25,10 +25,8 @@ import AddModal from "../components/addmodal.astro";
 					<h6>applications</h6>
 					<button id="addbutton" class="btn bluehover w-7 h-7 add-button">+</button>
 				</div>
-				<div class="flex flex-col grow gap-3">
-					<ApplicationCard></ApplicationCard>
-					<ApplicationCard></ApplicationCard>
-					<ApplicationCard></ApplicationCard>
+				<div id="applications" class="flex flex-col grow gap-3">
+
 				</div>
 			</div>
 		</main>
@@ -39,9 +37,55 @@ import AddModal from "../components/addmodal.astro";
 
 		const addModal = document.getElementById("addmodal");
 		const addBtn = document.getElementById("addbutton");
+		const applicationsContainer = document.getElementById("applications");
 
 		addBtn?.addEventListener("click", () => {
 			addModal?.classList.add("open");
 		})
+
+		async function loadApplications() {
+			fetch("http://localhost:8080/api/internships")
+			.then((response) => {
+				if (!response.ok) {
+					throw new Error(`HTTP Error: ${response.status}`);
+				}
+
+				return response.json();
+			})
+			.then(data => {
+
+				const fragment = document.createDocumentFragment();
+
+				data.map(application => {
+					const applicationCard = document.createElement("div");
+
+					applicationCard.className = "bluehover card w-full p-3 text-xs flex flex-col grow gap-2"
+					applicationCard.innerHTML = `
+						<div class="flex flex-row justify-between text-center items-center">
+							<div class="flex flex-row gap-2">
+								<p>${application.jobTitle}</p>
+								<p>@</p>
+								<p>${application.company}</p>
+							</div>
+							<p class="${application.status} pl-2 pr-2">${application.status}</p>
+						</div>
+						<div class="text-gray-400">
+							<p>${application.description}</p>
+						</div>
+						<div class="flex flex-col grow gap-2">
+							<p>Notes:</p>
+							<textarea class="txtfield p-2 field-sizing-content">${application.notes}</textarea>
+						</div>
+					`;
+
+					fragment.appendChild(applicationCard);
+				})
+
+				applicationsContainer?.appendChild(fragment);
+			})
+			.catch(error => console.error('Error: ', error));
+		}
+
+		loadApplications();
 	</script>
 </html>
